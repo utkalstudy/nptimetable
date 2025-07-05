@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Time Table - Nilachal Polytechnic</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: linear-gradient(to right, #e3f2fd, #f9fbe7);
+    }
+    .print-header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .print-header h1 {
+      font-size: 24px;
+      margin: 4px;
+    }
+    .print-header h2 {
+      font-size: 18px;
+      margin: 4px;
+      font-weight: normal;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    input, select, button {
+      padding: 6px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      margin: 10px 0;
+      border-collapse: collapse;
+      background-color: white;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 4px;
+      text-align: center;
+      border: 1px solid #333;
+      cursor: pointer;
+    }
+    th {
+      background-color: #dcedc8;
+    }
+    .faculty-summary {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .faculty-summary table {
+      width: 300px;
+      margin: auto;
+      border-collapse: collapse;
+    }
+    .faculty-summary th, .faculty-summary td {
+      border: 1px solid #333;
+      padding: 4px;
+      text-align: left;
+    }
+    .faculty-color {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .print-btn {
+      margin: 10px;
+    }
+    .faculty-routine-container {
+      margin-top: 40px;
+    }
+    .faculty-routine-container h3 {
+      text-align: center;
+      margin-top: 40px;
+    }
+    #printTime {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    #copyright {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    @media print {
+      form, .print-btn {
+        display: none;
+      }
+      th, td {
+        padding: 2px;
+        font-size: 12px;
+      }
+      #printTime, #copyright {
+        display: block;
+      }
+    }
+#effectiveDateContainer {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#effectiveDateContainer label,
+#effectiveDateContainer input {
+  font-size: 14px;
+  margin: 4px;
+}
+
+#printEffectiveDate {
+  display: none;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 8px;
+}
+.print-header {
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script
+</head>
+<body>
+
+ <div class="print-header">
+  <h1>Nilachala Polytechnic College of Engineering</h1>
+  <h2>Department of Civil Engineering</h2>
+  <h2>Time Table</h2>
+
+  <div id="effectiveDateContainer">
+    <label><strong>Effectively From:</strong></label>
+    <input type="date" id="effectiveDate" onchange="updatePrintDate()" />
+  </div>
+
+  <div id="printEffectiveDate"></div>
+</div>
+
+  </div>
+
+  <form id="routineForm">
+    <select id="className" required>
+      <option value="">Select Class</option>
+      <option>3rd Sem Civil</option>
+      <option>5th Sem Civil</option>
+    </select>
+
+    <select id="day" required>
+      <option value="">Select Day</option>
+      <option>Monday</option>
+      <option>Tuesday</option>
+      <option>Wednesday</option>
+      <option>Thursday</option>
+      <option>Friday</option>
+      <option>Saturday</option>
+    </select>
+
+    <select id="period" required>
+      <option value="">Select Period</option>
+      <option value="1">Period 1</option>
+      <option value="2">Period 2</option>
+      <option value="3">Period 3</option>
+      <option value="4">Period 4</option>
+      <option value="5">Period 5</option>
+    </select>
+
+    <select id="faculty" required>
+      <option value="">Faculty</option>
+    <option>J.K. Das</option>
+<option>A. Mallick</option>
+<option>S. Routray</option>
+<option>S. Sarangi</option>
+<option>M. Biswal</option>
+<option>P. Dalai</option>
+<option>M. Pradhan</option>
+      <option>Faculty1</option>
+    </select>
+
+    <select id="subject" required>
+      <option value="">Subject</option>
+      <option>BC</option>
+<option>TE</option>
+<option>MOM</option>
+<option>GE</option>
+<option>BMCT</option>
+<option>TE LAB</option>
+<option>MOM LAB</option>
+<option>GE LAB</option>
+<option>BMC LAB</option>
+<option>EM&amp;ST</option>
+<option>SD-II</option>
+<option>R&amp;BE</option>
+<option>WS&amp;WWE</option>
+<option>E&amp;CE-II</option>
+<option>CE LAB-II</option>
+<option>EST PR-II</option>
+<option>PROJECT</option>
+    </select>
+
+    <button type="submit">Add</button>
+  </form>
+
+  <button class="print-btn" onclick="printRoutine()">🖨️ Print Routine</button>
+  <button class="print-btn" onclick="exportToExcel()">📥 Export to Excel</button>
+  <button class="print-btn" onclick="exportToWord()">📄 Export to Word</button>
+  <button class="print-btn" onclick="resetRoutine()">🔄 Reset</button>
+
+  <div id="routinesContainer"></div>
+  <div class="faculty-summary" id="facultySummary"></div>
+  <div class="faculty-routine-container" id="facultyRoutineContainer"></div>
+  <div id="printTime"></div>
+  <div id="copyright"></div>
+
+  <script>
+    const classes = ["3rd Sem Civil", "5th Sem Civil"];
+    const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    let routineData = {};
+    let facultyRoutines = {};
+    let facultyColors = {};
+
+    const periodTimes = {
+      "3rd Sem Civil": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
+      "5th Sem Civil": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"],
+    };
+
+    // Generate pastel color
+    function generatePastelColor() {
+      const hue = Math.floor(Math.random() * 360);
+      return `hsl(${hue}, 70%, 85%)`;
+    }
+
+    // Save all data to localStorage
+    function saveToLocalStorage() {
+      localStorage.setItem("routineData", JSON.stringify(routineData));
+      localStorage.setItem("facultyRoutines", JSON.stringify(facultyRoutines));
+      localStorage.setItem("facultyColors", JSON.stringify(facultyColors));
+    }
+
+    // Load data from localStorage
+    function loadFromLocalStorage() {
+      routineData = JSON.parse(localStorage.getItem("routineData")) || {};
+      facultyRoutines = JSON.parse(localStorage.getItem("facultyRoutines")) || {};
+      facultyColors = JSON.parse(localStorage.getItem("facultyColors")) || {};
+    }
+
+    // Initialize empty data for all classes
+    function initializeData() {
+      classes.forEach(cls => {
+        if (!routineData[cls]) routineData[cls] = {};
+      });
+    }
+
+    // Load and render on startup
+    window.onload = () => {
+      loadFromLocalStorage();
+      initializeData();
+      renderTables();
+    };
+
+    // Handle form submission
+    document.getElementById("routineForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const cls = document.getElementById("className").value;
+      const day = document.getElementById("day").value;
+      const period = parseInt(document.getElementById("period").value) - 1;
+      const faculty = document.getElementById("faculty").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+
+      for (let otherClass of classes) {
+        if (routineData[otherClass][day] && routineData[otherClass][day][period]) {
+          if (routineData[otherClass][day][period].some(entry => entry.includes(`(${faculty})`))) {
+            alert(`❌ Faculty ${faculty} already scheduled for ${otherClass} on ${day}, Period ${period + 1}`);
+            return;
+          }
+        }
+      }
+
+      if (!routineData[cls][day]) routineData[cls][day] = {};
+      if (!routineData[cls][day][period]) routineData[cls][day][period] = [];
+      routineData[cls][day][period].push(`${subject} (${faculty})`);
+
+      if (!facultyRoutines[faculty]) facultyRoutines[faculty] = {};
+      if (!facultyRoutines[faculty][day]) facultyRoutines[faculty][day] = {};
+      facultyRoutines[faculty][day][period] = `${subject} (${cls})`;
+
+      if (!facultyColors[faculty]) {
+        facultyColors[faculty] = generatePastelColor();
+      }
+
+      this.reset();
+      saveToLocalStorage();
+      renderTables();
+    });
+
+    // Delete entry
+    function deleteEntry(cls, day, period, index) {
+      const entry = routineData[cls][day][period][index];
+      const fac = entry.match(/\(([^)]+)\)/)?.[1];
+      delete facultyRoutines[fac]?.[day]?.[period];
+      routineData[cls][day][period].splice(index, 1);
+      if (routineData[cls][day][period].length === 0) {
+        delete routineData[cls][day][period];
+      }
+      saveToLocalStorage();
+      renderTables();
+    }
+
+    // Render all class routines
+    function renderTables() {
+      const container = document.getElementById("routinesContainer");
+      container.innerHTML = "";
+
+      classes.forEach(cls => {
+        const title = document.createElement("h3");
+        title.textContent = `Routine for ${cls}`;
+        container.appendChild(title);
+
+        const table = document.createElement("table");
+        let thead = "<thead><tr><th>Day \\ Period</th>";
+        periodTimes[cls].forEach((time, i) => {
+          thead += `<th>P${i + 1}<br>${time}</th>`;
+        });
+        thead += "</tr></thead><tbody>";
+
+        days.forEach(day => {
+          thead += `<tr><td>${day}</td>`;
+          for (let i = 0; i < 5; i++) {
+            const entries = routineData[cls][day]?.[i] || [];
+            const cellContent = entries.map((val, idx) => {
+              const fac = val.match(/\(([^)]+)\)/)?.[1];
+              const color = facultyColors[fac] || "#eee";
+              return `<div onclick="deleteEntry('${cls}','${day}',${i},${idx})" style="background:${color};margin:2px;padding:2px;border-radius:4px">${val}</div>`;
+            }).join("");
+            thead += `<td>${cellContent}</td>`;
+          }
+          thead += "</tr>";
+        });
+
+        table.innerHTML = thead + "</tbody>";
+        container.appendChild(table);
+      });
+
+      renderFacultySummary();
+      renderFacultyRoutines();
+    }
+
+    // Render summary
+    function renderFacultySummary() {
+      const summary = {};
+      for (let cls of classes) {
+        for (let day in routineData[cls]) {
+          for (let p in routineData[cls][day]) {
+            routineData[cls][day][p].forEach(entry => {
+              const fac = entry.match(/\(([^)]+)\)/)?.[1];
+              summary[fac] = (summary[fac] || 0) + 1;
+            });
+          }
+        }
+      }
+
+      let html = "<h3 style='text-align:center'>Faculty-wise Class Hours</h3><table><tr><th>Faculty</th><th>Hours</th></tr>";
+      for (let fac in summary) {
+        html += `<tr><td><span class="faculty-color" style="background:${facultyColors[fac]}"></span>${fac}</td><td>${summary[fac]}</td></tr>`;
+      }
+      html += "</table>";
+      document.getElementById("facultySummary").innerHTML = html;
+    }
+
+    // Render each faculty routine
+    function renderFacultyRoutines() {
+      const container = document.getElementById("facultyRoutineContainer");
+      container.innerHTML = "<h3>Individual Time Table</h3>";
+      for (let faculty in facultyRoutines) {
+        const table = document.createElement("table");
+        let thead = `<thead><tr><th>Day \\ Period</th>`;
+        for (let i = 1; i <= 5; i++) {
+          thead += `<th>P${i}</th>`;
+        }
+        thead += "</tr></thead><tbody>";
+
+        days.forEach(day => {
+          thead += `<tr><td>${day}</td>`;
+          for (let i = 0; i < 5; i++) {
+            const entry = facultyRoutines[faculty][day]?.[i] || "";
+            thead += `<td>${entry}</td>`;
+          }
+          thead += "</tr>";
+        });
+
+        table.innerHTML = thead + "</tbody>";
+        const title = document.createElement("h4");
+        title.innerHTML = `<span class="faculty-color" style="background:${facultyColors[faculty]}"></span> ${faculty}`;
+        container.appendChild(title);
+        container.appendChild(table);
+      }
+    }
+
+    // (Optional) Print / Export functions (not modified)
+    function printRoutine() {
+      document.getElementById("printTime").innerText = "Printed on: " + new Date().toLocaleString();
+      document.getElementById("copyright").innerText = "© Bibhash - All rights reserved";
+      window.print();
+    }
+
+   function exportToExcel() {
+  const wb = XLSX.utils.book_new();
+
+  classes.forEach(cls => {
+    const data = [];
+    const rowHeader = ["Day \\ Period", ...periodTimes[cls].map((t, i) => `P${i + 1}\n${t}`)];
+    data.push(rowHeader);
+
+    days.forEach(day => {
+      const row = [day];
+      for (let i = 0; i < 5; i++) {
+        const entries = routineData[cls][day]?.[i] || [];
+        row.push(entries.join("\n"));
+      }
+      data.push(row);
+    });
+
+    const ws = XLSX.utils.aoa_to_sheet(data);
+    XLSX.utils.book_append_sheet(wb, ws, cls);
+  });
+
+  XLSX.writeFile(wb, "SectionWiseRoutine.xlsx");
+}
+    function exportToWord() {
+  const routinesHTML = document.getElementById("routinesContainer").innerHTML;
+  const effectiveDate = document.getElementById("printEffectiveDate").textContent;
+
+  const content = `
+    <html xmlns:o='urn:schemas-microsoft-com:office:office' 
+          xmlns:w='urn:schemas-microsoft-com:office:word' 
+          xmlns='http://www.w3.org/TR/REC-html40'>
+    <head><meta charset='utf-8'><title>Routine</title></head>
+    <body>
+      <h1 style='text-align:center;'>Nilachala Polytechnic College of Engineering</h1>
+      <h2 style='text-align:center;'>Department of Computer Science and Engineering</h2>
+      <h3 style='text-align:center;'>Time Table</h3>
+      <h4 style='text-align:center;'>${effectiveDate}</h4>
+      ${routinesHTML}
+    </body>
+    </html>`;
+
+  const blob = new Blob(['\ufeff', content], { type: 'application/msword' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "Routine.doc";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+    function resetRoutine() {
+  if (confirm("Are you sure you want to reset all routine data? This action cannot be undone.")) {
+    localStorage.clear();
+    location.reload();
+  }
+}
+  </script>
+<script>
+  function updatePrintDate() {
+    const dateInput = document.getElementById('effectiveDate').value;
+    const printDisplay = document.getElementById('printEffectiveDate');
+
+    if (dateInput) {
+      const date = new Date(dateInput);
+      const formatted = date.toLocaleDateString('en-GB', {
+        day: '2-digit', month: '2-digit', year: 'numeric'
+      });
+      printDisplay.textContent = `Effectively From: ${formatted}`;
+    } else {
+      printDisplay.textContent = '';
+    }
+  }
+</script>
+</body>
+</html>

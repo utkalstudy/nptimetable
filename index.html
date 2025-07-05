@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nilachala Polytechnic - Time Table</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 40px 20px 60px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 5px;
+      color: #2c3e50;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 50px;
+      color: #555;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    .btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 180px;
+      height: 130px;
+      background: white;
+      border-radius: 15px;
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, background 0.3s ease;
+      position: relative;
+    }
+
+    .btn i {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-8px);
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    }
+
+    /* Department colors */
+    .cse i { color: #2980b9; }
+    .ee i { color: #e67e22; }
+    .me i { color: #16a085; }
+    .ce i { color: #8e44ad; }
+    .first i { color: #34495e; }
+
+    footer {
+      margin-top: auto;
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 14px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+
+    @media (max-width: 500px) {
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Nilachala Polytechnic College of Engineering</h1>
+  <h2>📅 Time Table Website</h2>
+
+  <div class="buttons">
+    <a href="first.html" class="btn first">
+      <i class="fas fa-user-graduate"></i>
+      First Year
+    </a>
+    <a href="cse.html" class="btn cse">
+      <i class="fas fa-laptop-code"></i>
+      Computer Science & Engineering
+    </a>
+    <a href="ee.html" class="btn ee">
+      <i class="fas fa-bolt"></i>
+      Electrical Engineering
+    </a>
+    <a href="me.html" class="btn me">
+      <i class="fas fa-cogs"></i>
+      Mechanical Engineering
+    </a>
+    <a href="ce.html" class="btn ce">
+      <i class="fas fa-drafting-compass"></i>
+      Civil Engineering
+    </a>
+  </div>
+
+  <footer>&copy; 2025 Nilachala Polytechnic College of Engineering | Designed by Bibhash</footer>
+
+</body>
+</html>
