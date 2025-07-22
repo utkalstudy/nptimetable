@@ -157,10 +157,10 @@
   <form id="routineForm">
     <select id="className" required>
       <option value="">Select Class</option>
-      <option>2nd CSE A</option>
-      <option>2nd CSE B</option>
-      <option>3rd CSE A</option>
-      <option>3rd CSE B</option>
+      <option>3rd Sem CSE A</option>
+      <option>3rd Sem CSE B</option>
+      <option>5th Sem CSE A</option>
+      <option>5th Sem CSE B</option>
     </select>
 
     <select id="day" required>
@@ -197,7 +197,8 @@
 <option>D. Pohi</option>
 <option>A. Mohanty</option>
 <option>J.K.Das</option>
-      <option>Faculty1</option>
+      <option>B. Devi</option>
+<option>Faculty</option>
     </select>
 
     <select id="subject" required>
@@ -238,7 +239,7 @@
   <div id="copyright"></div>
 
   <script>
-    const classes = ["2nd CSE A", "2nd CSE B", "3rd CSE A", "3rd CSE B"];
+    const classes = ["3rd Sem CSE A", "3rd Sem CSE B", "5th Sem CSE A", "5th Sem CSE B"];
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     let routineData = {};
@@ -246,10 +247,10 @@
     let facultyColors = {};
 
     const periodTimes = {
-      "2nd CSE A": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
-      "2nd CSE B": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
-      "3rd CSE A": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"],
-      "3rd CSE B": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"]
+      "3rd Sem CSE A": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
+      "3rd Sem CSE B": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
+      "5th Sem CSE A": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"],
+      "5th Sem CSE B": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"]
     };
 
     // Generate pastel color
