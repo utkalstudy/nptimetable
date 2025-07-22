@@ -141,7 +141,7 @@
 
  <div class="print-header">
   <h1>Nilachala Polytechnic College of Engineering</h1>
-  <h2>Department of Mechanical Engineering</h2>
+  <h2>Department of Electrical Engineering</h2>
   <h2>Time Table</h2>
 
   <div id="effectiveDateContainer">
@@ -157,8 +157,10 @@
   <form id="routineForm">
     <select id="className" required>
       <option value="">Select Class</option>
-      <option>3rd Sem Mechanical</option>
-      <option>5th Sem Mechanical</option>
+      <option>3rd Sem EE A</option>
+      <option>3rd Sem EE B</option>
+      <option>5th Sem EE</option>
+    
     </select>
 
     <select id="day" required>
@@ -181,36 +183,40 @@
     </select>
 
     <select id="faculty" required>
-      <option value="">Faculty</option>
-    <option>D.GHOSH</option>
-<option>I.MISHRA</option>
-<option>A.MISHRA</option>
-<option>S.R.BISWAL</option>
-<option>J.K.Das</option>
+<option value="">Faculty</option>
+<option>A. Nayak</option>
+<option>P. Mohapatra</option>
+<option>P.S. Roy</option>
+<option>S. Das</option>
+<option>J.K. Das</option>
+<option>S. Tripathy</option>
+<option>S. Panda</option>
+
       <option>Faculty1</option>
     </select>
 
     <select id="subject" required>
       <option value="">Subject</option>
-<option>MP</option>
-<option>SOM</option>
-<option>MS&amp;E</option>
-<option>FM&amp;FP</option>
-<option>TE-I</option>
-<option>MFT LAB</option>
-<option>MT&amp;M LAB</option>
-<option>FM&amp;FP LAB</option>
-<option>TE-I LAB</option>
+      <option>IEGS</option>
+<option>EC</option>
+<option>EEM</option>
+<option>DCM&amp;T</option>
+<option>REPP</option>
+<option>PPS LAB</option>
+<option>EC LAB</option>
+<option>EEM LAB</option>
+<option>DCM&amp;T LAB</option>
 <option>EM&amp;ST</option>
-<option>DME</option>
-<option>HM&amp;IFP</option>
-<option>MECH</option>
-<option>RE&amp;AC</option>
-<option>RE&amp;AC LAB</option>
-<option>HM&amp;IFP LAB</option>
-<option>CAD/CAM LAB</option>
+<option>EC-II</option>
+<option>DE&amp;M</option>
+<option>UEE&amp;T</option>
+<option>PE&amp;PLC</option>
+<option>EM LAB-II</option>
+<option>PE&amp; PLC LAB</option>
+<option>DE&amp;MP LAB</option>
 <option>PROJECT</option>
 <option>SCA</option>
+
     </select>
 
     <button type="submit">Add</button>
@@ -228,7 +234,7 @@
   <div id="copyright"></div>
 
   <script>
-    const classes = ["3rd Sem Mechanical", "5th Sem Mechanical"];
+    const classes = ["3rd Sem EE A", "3rd Sem EE B", "5th Sem EE"];
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     let routineData = {};
@@ -236,8 +242,9 @@
     let facultyColors = {};
 
     const periodTimes = {
-      "3rd Sem Mechanical": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
-      "5th Sem Mechanical": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"],
+      "3rd Sem EE A": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
+      "3rd Sem EE B": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
+      "5th Sem EE": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"]
     };
 
     // Generate pastel color
