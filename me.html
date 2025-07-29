@@ -345,7 +345,7 @@
 
         days.forEach(day => {
           thead += `<tr><td>${day}</td>`;
-          for (let i = 0; i < 5; i++) {
+          for (let i = 0; i < 4; i++) {
             const entries = routineData[cls][day]?.[i] || [];
             const cellContent = entries.map((val, idx) => {
               const fac = val.match(/\(([^)]+)\)/)?.[1];
