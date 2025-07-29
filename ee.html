@@ -179,7 +179,6 @@
       <option value="2">Period 2</option>
       <option value="3">Period 3</option>
       <option value="4">Period 4</option>
-      <option value="5">Period 5</option>
     </select>
 
     <select id="faculty" required>
@@ -244,9 +243,9 @@
     let facultyColors = {};
 
     const periodTimes = {
-      "3rd Sem EE A": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
-      "3rd Sem EE B": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
-      "5th Sem EE": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"]
+      "3rd Sem EE A": ["10:20–11:15", "11:15–12:10", "12:40–01:35", "01:35–02:30"],
+      "3rd Sem EE B": ["10:20–11:15", "11:15–12:10", "12:40–01:35", "01:35–02:30"],
+      "5th Sem EE": ["10:20–11:15", "11:15–12:10", "12:10–01:05", "01:35–02:30"]
     };
 
     // Generate pastel color
@@ -350,7 +349,7 @@
 
         days.forEach(day => {
           thead += `<tr><td>${day}</td>`;
-          for (let i = 0; i < 5; i++) {
+          for (let i = 0; i < 4; i++) {
             const entries = routineData[cls][day]?.[i] || [];
             const cellContent = entries.map((val, idx) => {
               const fac = val.match(/\(([^)]+)\)/)?.[1];
@@ -399,14 +398,14 @@
       for (let faculty in facultyRoutines) {
         const table = document.createElement("table");
         let thead = `<thead><tr><th>Day \\ Period</th>`;
-        for (let i = 1; i <= 5; i++) {
+        for (let i = 1; i <= 4; i++) {
           thead += `<th>P${i}</th>`;
         }
         thead += "</tr></thead><tbody>";
 
         days.forEach(day => {
           thead += `<tr><td>${day}</td>`;
-          for (let i = 0; i < 5; i++) {
+          for (let i = 0; i < 4; i++) {
             const entry = facultyRoutines[faculty][day]?.[i] || "";
             thead += `<td>${entry}</td>`;
           }
@@ -438,7 +437,7 @@
 
     days.forEach(day => {
       const row = [day];
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 4; i++) {
         const entries = routineData[cls][day]?.[i] || [];
         row.push(entries.join("\n"));
       }
