@@ -157,8 +157,11 @@
   <form id="routineForm">
     <select id="className" required>
       <option value="">Select Class</option>
-      <option>3rd Sem Mechanical</option>
-      <option>5th Sem Mechanical</option>
+      <option>Comp. Sc-A</option>
+      <option>Comp. Sc-B & Civil</option>
+      <option>Mech-A</option>
+      <option>Elect-A</option>
+      <option>Mech-B & Elect-B</option>
     </select>
 
     <select id="day" required>
@@ -182,35 +185,37 @@
 
     <select id="faculty" required>
       <option value="">Faculty</option>
-    <option>D.GHOSH</option>
-<option>I.MISHRA</option>
-<option>A.MISHRA</option>
-<option>S.R.BISWAL</option>
-<option>J.K.Das</option>
-      <option>Faculty1</option>
+<option>M.M. Lenka</option>
+<option>M Acharya</option>
+<option>R K Moharana</option>
+<option>S R Sahoo</option>
+<option>S Rout</option>
+<option>P Behera</option>
+<option>R K Das</option>
+<option>P Dalai</option>
+<option>C K Mishra</option>
+<option>D Mohapatra</option>
+<option>R Rout</option>
+<option>Sweta Sarangi</option>
+<option>Faculty 1</option>
     </select>
 
     <select id="subject" required>
       <option value="">Subject</option>
-<option>MP</option>
-<option>SOM</option>
-<option>MS&amp;E</option>
-<option>FM&amp;FP</option>
-<option>TE-I</option>
-<option>MFT LAB</option>
-<option>MT&amp;M LAB</option>
-<option>FM&amp;FP LAB</option>
-<option>TE-I LAB</option>
-<option>EM&amp;ST</option>
-<option>DME</option>
-<option>HM&amp;IFP</option>
-<option>MECH</option>
-<option>RE&amp;AC</option>
-<option>RE&amp;AC LAB</option>
-<option>HM&amp;IFP LAB</option>
-<option>CAD/CAM LAB</option>
-<option>PROJECT</option>
-<option>SCA</option>
+<option>Eng</option>
+<option>Phy 1</option>
+<option>Math 1</option>
+<option>Mech</option>
+<option>EVS</option>
+<option>IT</option>
+<option>BEE</option>
+<option>BETC</option>
+<option>IT Lab</option>
+<option>Phy 1 Lab</option>
+<option>EEE Lab</option>
+<option>EG Lab</option>
+<option>EM Lab</option>
+<option>Sport Yoga</option>
     </select>
 
     <button type="submit">Add</button>
@@ -228,7 +233,7 @@
   <div id="copyright"></div>
 
   <script>
-    const classes = ["3rd Sem Mechanical", "5th Sem Mechanical"];
+    const classes = ["Comp. Sc-A", "Comp. Sc-B & Civil",  "Mech-A", "Elect-A","Mech-B & Elect-B"];
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     let routineData = {};
@@ -236,8 +241,11 @@
     let facultyColors = {};
 
     const periodTimes = {
-      "3rd Sem Mechanical": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
-      "5th Sem Mechanical": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"],
+      "Comp. Sc-A": ["10:40–11:40", "11:40–12:40", "12:40–01:40", "02:10–03:10", "03:10–04:10"],
+      "Comp. Sc-B & Civil": ["10:40–11:40", "11:40–12:40", "12:40–01:40", "02:10–03:10", "03:10–04:10"],
+      "Mech-A": ["10:40–11:40", "11:40–12:40", "12:40–01:40", "02:10–03:10", "03:10–04:10"],
+      "Elect-A": ["10:40–11:40", "11:40–12:40", "12:40–01:40", "02:10–03:10", "03:10–04:10"],
+      "Mech-B & Elect-B": ["10:40–11:40", "11:40–12:40", "12:40–01:40", "02:10–03:10", "03:10–04:10"],
     };
 
     // Generate pastel color
