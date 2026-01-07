@@ -157,10 +157,10 @@
   <form id="routineForm">
     <select id="className" required>
       <option value="">Select Class</option>
-      <option>3rd Sem CSE A</option>
-      <option>3rd Sem CSE B</option>
-      <option>5th Sem CSE A</option>
-      <option>5th Sem CSE B</option>
+      <option>4th Sem  CSE A</option>
+      <option>4th Sem  CSE B</option>
+      <option>6th Sem CSE A</option>
+      <option>6th Sem CSE B</option>
     </select>
 
     <select id="day" required>
@@ -184,44 +184,38 @@
 
     <select id="faculty" required>
 <option value="">Faculty</option>
-      <option>Sonika Priy</option>
-<option>B.R. Patanaik</option>
-<option>M. Batu</option>
-<option>S. Tripathy</option>
-<option>S. Das</option>
-<option>Sonali Priy</option>
-<option>J. Mallick</option>
-<option>N. Jena</option>
-<option>B. R. Parida</option>
-<option>S. Panda</option>
-<option>D. Pohi</option>
-<option>A. Mohanty</option>
-<option>J.K.Das</option>
-      <option>S.R. Swain</option>
+      <option>B.R.Pattnaik</option>
+<option>B.R.Parida</option>
+<option>A.R.Mohanty</option>
+<option>M.Batu</option>
+<option>S.Das</option>
+<option>D.Pohi</option>
+<option>S.Panda</option>
+<option>S.R.Swain</option>
+
 <option>Faculty</option>
     </select>
 
     <select id="subject" required>
       <option value="">Subject</option>
-      <option>C++</option>
-<option>PYTHON</option>
-<option>DS</option>
-<option>DECO</option>
-<option>ALO</option>
-<option>C++ LAB</option>
-<option>PYTHON LAB</option>
-<option>DS LAB</option>
-<option>DE LAB</option>
-<option>EM&ST</option>
-<option>I&WT</option>
-<option>SE</option>
-<option>CHM</option>
-<option>MC</option>
-<option>WD LAB</option>
-<option>CHM LAB</option>
-<option>PYTHON LAB</option>
-<option>PROJECT</option>
-<option>SCA</option>
+      <option>CNS</option>
+<option>IOT</option>
+<option>CC</option>
+<option>E-Com</option>
+<option>NS Lab</option>
+<option>IOT Lab</option>
+<option>Project</option>
+<option>Life Skill</option>
+<option>OS</option>
+<option>DBMS</option>
+<option>CN</option>
+<option>MPMC</option>
+<option>IC</option>
+<option>OS Lab</option>
+<option>DMS Lab</option>
+<option>CN Lab</option>
+<option>Min Project</option>
+
     </select>
 
     <button type="submit">Add</button>
@@ -239,7 +233,7 @@
   <div id="copyright"></div>
 
   <script>
-    const classes = ["3rd Sem CSE A", "3rd Sem CSE B", "5th Sem CSE A", "5th Sem CSE B"];
+    const classes = ["4th Sem  CSE A", "4th Sem  CSE B", "6th Sem CSE A", "6th Sem CSE B"];
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     let routineData = {};
@@ -247,10 +241,10 @@
     let facultyColors = {};
 
     const periodTimes = {
-      "3rd Sem CSE A": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
-      "3rd Sem CSE B": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
-      "5th Sem CSE A": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"],
-      "5th Sem CSE B": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"]
+      "4th Sem  CSE A": ["10:20–11:15", "11:15–12:10", "12:40–01:35", "01:35–02:30", "02:30–03:25"],
+      "4th Sem  CSE B": ["10:20–11:15", "11:15–12:10", "12:40–01:35", "01:35–02:30", "02:30–03:25"],
+      "6th Sem CSE A": ["10:20–11:15", "11:15–12:10", "12:10–01:05", "01:35–02:30", "02:30–03:25"],
+      "6th Sem CSE B": ["10:20–11:15", "11:15–12:10", "12:10–01:05", "01:35–02:30", "02:30–03:25"]
     };
 
     // Generate pastel color
