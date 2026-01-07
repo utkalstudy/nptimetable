@@ -157,9 +157,9 @@
   <form id="routineForm">
     <select id="className" required>
       <option value="">Select Class</option>
-      <option>3rd Sem EE A</option>
-      <option>3rd Sem EE B</option>
-      <option>5th Sem EE</option>
+      <option>4th Sem EE A</option>
+      <option>4th Sem EE B</option>
+      <option>6th Sem EE</option>
     
     </select>
 
@@ -184,40 +184,36 @@
 
     <select id="faculty" required>
 <option value="">Faculty</option>
-<option>A.R. Nayak</option>
-<option>P. Mahapatra</option>
-<option>P.S. Roy</option>
-<option>S. Das</option>
-<option>J.K. Das</option>
-<option>S. Tripathy</option>
-<option>S. Panda</option>
-  <option>D. Pohi</option>
-  <option>M. Senapati</option>
+<option>A.R.Nayak</option>
+<option>P.Mahapatra</option>
+<option>S.Tripathy</option>
+<option>A.Sahu</option>
+<option>M.Senapti</option>
+<option>S.Dash</option>
+<option>P.S.Ray</option>
+
 
       <option>Faculty1</option>
     </select>
 
     <select id="subject" required>
       <option value="">Subject</option>
-      <option>IEGS</option>
-<option>EC</option>
-<option>EEM</option>
-<option>DCM&amp;T</option>
-<option>REPP</option>
-<option>PPS LAB</option>
-<option>EC LAB</option>
-<option>EEM LAB</option>
-<option>DCM&amp;T LAB</option>
-<option>EM&amp;ST</option>
-<option>EC-II</option>
-<option>DE&amp;M</option>
-<option>UEE&amp;T</option>
-<option>PE&amp;PLC</option>
-<option>EM LAB-II</option>
-<option>PE&amp; PLC LAB</option>
-<option>DE&amp;MP LAB</option>
-<option>PROJECT</option>
-<option>SCA</option>
+      <option>EIE</option>
+<option>SGPD</option>
+<option>CSE</option>
+<option>RE</option>
+<option>EWS</option>
+<option>Project P-2</option>
+<option>Life Skill</option>
+<option>FPE</option>
+<option>EPTD</option>
+<option>ACM&SEM</option>
+<option>LCS</option>
+<option>EEC</option>
+<option>PE Lab</option>
+<option>ACM Lab</option>
+<option>EEC Lab</option>
+<option>Min Project</option>
 
     </select>
 
@@ -236,7 +232,7 @@
   <div id="copyright"></div>
 
   <script>
-    const classes = ["3rd Sem EE A", "3rd Sem EE B", "5th Sem EE"];
+    const classes = ["4th Sem EE A", "4th Sem EE B", "6th Sem EE"];
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     let routineData = {};
@@ -244,9 +240,9 @@
     let facultyColors = {};
 
     const periodTimes = {
-      "3rd Sem EE A": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
-      "3rd Sem EE B": ["10:20–11:20", "11:20–12:20", "12:50–01:50", "01:50–02:50", "02:50–03:50"],
-      "5th Sem EE": ["10:20–11:20", "11:20–12:20", "12:20–01:20", "01:50–02:50", "02:50–03:50"]
+      "4th Sem EE A": ["10:20–11:15", "11:15–12:10", "12:40–01:35", "01:35–02:30", "02:30–03:25"],
+      "4th Sem EE B": ["10:20–11:15", "11:15–12:10", "12:40–01:35", "01:35–02:30", "02:30–03:25"],
+      "6th Sem EE": ["10:20–11:15", "11:15–12:10", "12:10–01:05", "01:35–02:30", "02:30–03:25"]
     };
 
     // Generate pastel color
